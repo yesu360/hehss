@@ -1,0 +1,187 @@
+z<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion Website</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('https://cdn.shopify.com/s/files/1/0115/8319/3145/products/image_cc261843-7858-48bc-a877-0aa07d7757b6_2048x.jpg?v=1618670635');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            color: white;
+        }
+
+        h1, h2, h3 {
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+            font-size: 18px;
+        }
+
+        table {
+            margin: 20px auto;
+            border-collapse: collapse;
+            width: 70%;
+            background-color: rgba(0,0,0,0.6);
+        }
+
+        th, td {
+            border: 1px solid white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #222;
+        }
+
+        button {
+            padding: 6px 14px;
+            background-color: orange;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: gold;
+        }
+
+        form {
+            width: 300px;
+            margin: 20px auto;
+            background-color: rgba(0,0,0,0.6);
+            padding: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 6px;
+            margin: 6px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>Fashion Web</h1>
+
+<p>
+    Here you can find all types of <mark>fabrics, dresses and stitching</mark><br>
+    Available at reasonable prices.
+</p>
+
+<!-- FABRICS -->
+<h2>Fabrics</h2>
+
+<table>
+    <tr>
+        <th>Fabric</th>
+        <th>Price</th>
+        <th>More</th>
+    </tr>
+    <tr>
+        <td>Cotton</td>
+        <td>₹500</td>
+        <td><button onclick="showFabric('Cotton',500)">Click</button></td>
+    </tr>
+    <tr>
+        <td>Silk</td>
+        <td>₹400</td>
+        <td><button onclick="showFabric('Silk',400)">Click</button></td>
+    </tr>
+    <tr>
+        <td>Nylon</td>
+        <td>₹600</td>
+        <td><button onclick="showFabric('Nylon',600)">Click</button></td>
+    </tr>
+</table>
+
+<!-- MEN -->
+<h2>Men's Wear</h2>
+<table>
+    <tr>
+        <th>Dress</th>
+        <th>More</th>
+    </tr>
+    <tr>
+        <td>Shirts</td>
+        <td><button onclick="selectCategory('Men Shirts')">Click</button></td>
+    </tr>
+    <tr>
+        <td>Pants</td>
+        <td><button onclick="selectCategory('Men Pants')">Click</button></td>
+    </tr>
+</table>
+
+<!-- WOMEN -->
+<h2>Women's Wear</h2>
+<table>
+    <tr>
+        <th>Dress</th>
+        <th>More</th>
+    </tr>
+    <tr>
+        <td>Sarees</td>
+        <td><button onclick="selectCategory('Sarees')">Click</button></td>
+    </tr>
+    <tr>
+        <td>Lehangas</td>
+        <td><button onclick="selectCategory('Lehangas')">Click</button></td>
+    </tr>
+</table>
+
+<!-- ORDER FORM -->
+<h2>Order Form</h2>
+
+<form onsubmit="return submitOrder()">
+    <label>Name</label>
+    <input type="text" id="name" placeholder="Enter name">
+
+    <label>Email</label>
+    <input type="email" id="email" placeholder="Enter email">
+
+    <button type="submit">Submit</button>
+</form>
+
+<!-- JAVASCRIPT (BODY END – CORRECT PLACE) -->
+<script>
+    // page load
+    window.onload = function () {
+        alert("Welcome to Fashion Website 👗");
+    };
+
+    // fabric info
+    function showFabric(name, price) {
+        alert(name + " fabric price is ₹" + price);
+    }
+
+    // category select
+    function selectCategory(type) {
+        alert("You selected: " + type);
+    }
+
+    // form validation
+    function submitOrder() {
+        var name = document.getElementById("name").value;
+        var email = document.getElementById("email").value;
+
+        if (name === "" || email === "") {
+            alert("Please fill all details ❗");
+            return false;
+        }
+
+        alert("Thank you " + name + "! Order submitted successfully ✅");
+        return true;
+    }
+</script>
+
+</body>
+</html>
